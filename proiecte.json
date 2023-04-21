@@ -3,13 +3,13 @@
         {
             "nume" : "Memory Game",
             "descriere" : "Un memory game",
-            "img" : "../img/memory_game.png",
-            "link" : "../proiecte/memory/index.html"
+            "img" : "./img/memory_game.png",
+            "link" : "./proiecte/memory/index.html"
         }, {
             "nume" : "Digital Alarm",
             "descriere" : "O Alarma Digitala",
-            "img" : "../img/DigitalAlarm.png",
-            "link" : "../proiecte/digital alarm/index.html"
+            "img" : "./img/DigitalAlarm.png",
+            "link" : "./proiecte/digital alarm/index.html"
         }
     ]
 }

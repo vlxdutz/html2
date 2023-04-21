@@ -4,54 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Acasa</title>
+    <link rel="stylesheet" href="./style.css">
     <style>
-      .nav-menu li a[href^="catalog"] {
+      .nav-menu li a[href^="index"] {
         color: rgb(255, 0, 0);
         letter-spacing: 2px;
       }
     </style>
   </head>
-  <body>
+    <body>
+        <nav>
+          <ul class="nav-menu">
+              <li>
+                <a href="index.html">Acasa</a>
+              </li>
+              <li>
+                 <a href="catalog.html">Catalog</a>
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+      </ul>
 
-    <nav>
-      <ul class="nav-menu">
-          <li>
-            <a href="index.html">Acasa</a>
-          </li>
-          <li>
-             <a href="catalog.html">Catalog</a>
-          </li>
-          <li>
-            <a href="contact.html">Contact</a>
-          </li>
-  </ul>
+      <span id="dark-mode"></span>
+    </nav>
 
-  <span id="dark-mode"></span>
-</nav>
+    <!--Sectiune Hero-->
+    <div class="hero-section">
+      <div class="overlay"></div>
+      <h1>Acasa</h1>
+      <p>Salut, numele meu este Vlad. Daca vrei sa vezi mai multe proiecte facute de mine dai scroll.</p>
+    </div>
 
-<!-- Continut pagina-->
-<main class="catalog">
-  <form id="searchForm">
-    <input type="text" placeholder="Cauta...">
-    <button type="submit">Cauta</button>
-  </form>
+    <section class="page-content">
+      <div class="page-content-text">
+        <p>Poti observa mai jos unele proiecte facute de mine.</p>
+      </div>
+      <img src="https:source.unsplash.com/1600x900/?programming" alt="Bitcoin" class="page-content-img">
+    </section>
 
-  <!-- Lista carduri-->
-  <ul class="cards-list">
-  </ul>
+    <!-- Sectiune Carduri -->
+    <section class="cards-content">
+      <h2 class="titlu-card">Proiecte</h2>
+        <ul class="cards-list">
+    </ul>
+   </section>
 
-</main>
-	<script src="../js/index.js"></script>
-  <script src="../js/catalog.js"></script>
+  <footer>
+  <p>
+    Ma poti urmarii pe: <br>
+    Instagram: <a href="https://www.instagram.com/vlxdutz_/?next=%2F">vlxdutz_</a><br>
+    TikTok: <a href="https://www.tiktok.com/@vlxdutz_">vlxdutz</a>
+  </p>
+  </footer>
+	<script src="./js/index.js"></script>
   <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
     import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-    
+  
     // Your web app's Firebase configuration
       const firebaseConfig = {
       apiKey: "AIzaSyC00WwQ0E3I6La0kZcVIGWixuaKHM6rj5U",
@@ -83,8 +97,6 @@
           listProiecte.forEach(function(proiect) {
             generateCard(proiect);
           });
-
-          projects = listProiecte;
         } else {
           consol.log("No data available :(");
         }
@@ -94,5 +106,6 @@
     });
 
   </script>
+  
   </body>
 </html>
