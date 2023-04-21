@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <div id="clock-container">
+        <div class="clock-display">
+        
+            <div id="container_date"></div>
+            <span id="container_ora">0</span> :
+            <span id="container_min">0</span> :
+            <span id="container_sec">0</span>
+        </div>
+        <div id="alarm-display">
+            <select id="alarm_ora"></select>
+            <select id="alarm_min"></select>
+            <select id="alarm_sec"></select>
+
+            <button onclick="setAlarm()">Set Alarm</button>
+            <button onclick="cancelAlarm()">Cancel Alarm</button>
+        </div>
+    </div>  
+  </body>
+</html>

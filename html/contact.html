@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+    <nav>
+      <ul class="nav-menu">
+          <li>
+            <a href="index.html">Acasa</a>
+          </li>
+          <li>
+             <a href="catalog.html">Catalog</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+  </ul>
+
+  <span id="dark-mode"></span>
+</nav>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10737.62422177292!2d21.318907878911833
+!3d46.169360187417915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47459901d66b1ebd%3A0x93a4919264bb
+6a76!2sCurtea%20Veche!5e0!3m2!1sro!2sro!4v1680271836025!5m2!1sro!2sro" allowfullscreen="" loading="lazy"
+ referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <!-- Formular Contact -->
+  <div class="container-contact">
+      <h1>Contact</h1>
+
+      <div class="contact-box">
+        <h2>Trimite un mesaj</h2>
+
+        <form>
+          <div>
+            <label>Nume</label>
+            <input type="text" id="name" placeholder="Marcel Gigel">
+          </div>
+  
+          <div>
+            <label>Subiect</label>
+            <input type="text" id="subject" placeholder="Subiect">
+          </div>
+  
+          <div>
+            <label>Mesaj</label>
+            <textarea id="message" placeholder="Mesaj"></textarea>
+          </div>
+  
+          <button type="submit" id="send-button" onsubmit="sendMsg()">Trimite</button>
+      </form>
+  </div>
+
+	<script src="../js/index.js"></script>
+  <script src="../js/contact.js"></script>
+  </body>
+</html>

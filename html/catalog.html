@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+      .nav-menu li a[href^="catalog"] {
+        color: rgb(255, 0, 0);
+        letter-spacing: 2px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <ul class="nav-menu">
+          <li>
+            <a href="index.html">Acasa</a>
+          </li>
+          <li>
+             <a href="catalog.html">Catalog</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+  </ul>
+
+  <span id="dark-mode"></span>
+</nav>
+
+<!-- Continut pagina-->
+<main class="catalog">
+  <form id="searchForm">
+    <input type="text" placeholder="Cauta...">
+    <button type="submit">Cauta</button>
+  </form>
+
+  <!-- Lista carduri-->
+  <ul class="cards-list">
+  </ul>
+
+</main>
+	<script src="../js/index.js"></script>
+  <script src="../js/catalog.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+    import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    
+    // Your web app's Firebase configuration
+      const firebaseConfig = {
+      apiKey: "AIzaSyC00WwQ0E3I6La0kZcVIGWixuaKHM6rj5U",
+      authDomain: "html-c3f81.firebaseapp.com",
+      databaseURL: "https://html-c3f81-default-rtdb.firebaseio.com",
+      projectId: "html-c3f81",
+      storageBucket: "html-c3f81.appspot.com",
+      messagingSenderId: "859447011581",
+      appId: "1:859447011581:web:4a865dc99fc2b2f2b63694"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // Initializam baza de date
+    const dataBase = getDatabase(app);
+    // Referinta catre baza de date
+    const dbRef = ref(dataBase);
+    //Preluam lista de proiecte din baza de date
+    //'proiecte' - este numele listei
+    get(child(dbRef, 'proiecte'))
+    // Dupa ce preluam informatiile din baza de date, extragem datele
+    .then(function(data) {
+        if(data.exists()) { 
+          //Daca exista date, returnam lista de proiecrte 
+          const listProiecte = data.val();
+          console.log(listProiecte);
+
+          // Pentru fiecaree proiect din lista generam un card 
+          listProiecte.forEach(function(proiect) {
+            generateCard(proiect);
+          });
+
+          projects = listProiecte;
+        } else {
+          consol.log("No data available :(");
+        }
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+  </script>
+  </body>
+</html>

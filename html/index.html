@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Acasa</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+      .nav-menu li a[href^="index"] {
+        color: rgb(255, 0, 0);
+        letter-spacing: 2px;
+      }
+    </style>
+  </head>
+    <body>
+        <nav>
+          <ul class="nav-menu">
+              <li>
+                <a href="index.html">Acasa</a>
+              </li>
+              <li>
+                 <a href="catalog.html">Catalog</a>
+              </li>
+              <li>
+                <a href="contact.html">Contact</a>
+              </li>
+      </ul>
+
+      <span id="dark-mode"></span>
+    </nav>
+
+    <!--Sectiune Hero-->
+    <div class="hero-section">
+      <div class="overlay"></div>
+      <h1>Acasa</h1>
+      <p>Salut, numele meu este Vlad. Daca vrei sa vezi mai multe proiecte facute de mine dai scroll.</p>
+    </div>
+
+    <section class="page-content">
+      <div class="page-content-text">
+        <p>Poti observa mai jos unele proiecte facute de mine.</p>
+      </div>
+      <img src="https:source.unsplash.com/1600x900/?programming" alt="Bitcoin" class="page-content-img">
+    </section>
+
+    <!-- Sectiune Carduri -->
+    <section class="cards-content">
+      <h2 class="titlu-card">Proiecte</h2>
+        <ul class="cards-list">
+    </ul>
+   </section>
+
+  <footer>
+  <p>
+    Ma poti urmarii pe: <br>
+    Instagram: <a href="https://www.instagram.com/vlxdutz_/?next=%2F">vlxdutz_</a><br>
+    TikTok: <a href="https://www.tiktok.com/@vlxdutz_">vlxdutz</a>
+  </p>
+  </footer>
+	<script src="../js/index.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+    import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+      const firebaseConfig = {
+      apiKey: "AIzaSyC00WwQ0E3I6La0kZcVIGWixuaKHM6rj5U",
+      authDomain: "html-c3f81.firebaseapp.com",
+      databaseURL: "https://html-c3f81-default-rtdb.firebaseio.com",
+      projectId: "html-c3f81",
+      storageBucket: "html-c3f81.appspot.com",
+      messagingSenderId: "859447011581",
+      appId: "1:859447011581:web:4a865dc99fc2b2f2b63694"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // Initializam baza de date
+    const dataBase = getDatabase(app);
+    // Referinta catre baza de date
+    const dbRef = ref(dataBase);
+    //Preluam lista de proiecte din baza de date
+    //'proiecte' - este numele listei
+    get(child(dbRef, 'proiecte'))
+    // Dupa ce preluam informatiile din baza de date, extragem datele
+    .then(function(data) {
+        if(data.exists()) { 
+          //Daca exista date, returnam lista de proiecrte 
+          const listProiecte = data.val();
+          console.log(listProiecte);
+
+          // Pentru fiecaree proiect din lista generam un card 
+          listProiecte.forEach(function(proiect) {
+            generateCard(proiect);
+          });
+        } else {
+          consol.log("No data available :(");
+        }
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+
+  </script>
+  
+  </body>
+</html>
